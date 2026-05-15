@@ -24,9 +24,9 @@ export const translations = Object.freeze({
     about_p1: '<strong>Engenheiro backend sênior</strong> com foco em C# e .NET (Core / 6+), construindo sistemas em larga escala, APIs REST e arquiteturas distribuídas. Aplico SOLID, Clean Architecture e Design Patterns para que o código continue saudável depois que eu sair da sala.',
     about_p2: 'Trabalho com SQL Server, PostgreSQL, MongoDB, Docker, CI/CD e nuvem (AWS e Azure). Inglês fluente.',
     about_p3: 'Baseado em São José do Rio Preto, SP. Disponível para oportunidades remotas como <strong>.NET Backend Developer</strong>.',
-    hl_1: 'documentos/mês com MongoDB',
-    hl_2: 'CPU/memória após refatoração',
-    hl_3: 'anos construindo software',
+    hl_1: 'Capacidade de processamento escalável com MongoDB',
+    hl_2: 'Consumo reduzido de CPU/memória com padrões de design',
+    hl_3: 'Anos criando/mantendo software escalável e confiável',
 
     // Stack
     stack_title_em: 'stack',
@@ -68,9 +68,9 @@ export const translations = Object.freeze({
     about_p1: '<strong>Senior backend engineer</strong> focused on C# and .NET (Core / 6+), building large-scale systems, REST APIs and distributed architectures. I apply SOLID, Clean Architecture and Design Patterns so the codebase stays healthy long after I leave the room.',
     about_p2: 'I work with SQL Server, PostgreSQL, MongoDB, Docker, CI/CD and cloud (AWS and Azure). Fluent English.',
     about_p3: 'Based in São José do Rio Preto, Brazil. Open to remote opportunities as a <strong>.NET Backend Developer</strong>.',
-    hl_1: 'documents/month with MongoDB',
-    hl_2: 'CPU/memory after refactor',
-    hl_3: 'years building software',
+    hl_1: 'Scaled processing capacity using MongoDB',
+    hl_2: 'Reduced CPU/memory consumption with Design Patterns',
+    hl_3: 'years building scalable and reliable software',
 
     // Stack
     stack_title_em: 'stack',
