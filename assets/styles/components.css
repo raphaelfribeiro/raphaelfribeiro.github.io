@@ -1,0 +1,371 @@
+/**
+ * components.css
+ *
+ * Reusable visual components: nav, lang toggle, scene SVG, highlight
+ * cards, stack badges, project cards, contact links, status dot.
+ *
+ * Convention: top-level class = component, nested classes use a
+ * hyphen prefix (.project-name, .project-badge, ...).
+ */
+
+/* ============ Nav ============ */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(2, 4, 12, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0.9rem var(--pad);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand {
+  font-family: var(--font-pixel);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  color: var(--text);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 3vw, 2rem);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+}
+
+.nav-links a {
+  color: var(--text-2);
+  transition: color 0.2s;
+  letter-spacing: 0.05em;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 560px) {
+  .nav-links .nav-link-text { display: none; }
+  .brand { font-size: 0.55rem; }
+}
+
+/* ============ Language toggle ============ */
+.lang-toggle {
+  display: flex;
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+.lang-toggle button {
+  background: transparent;
+  border: none;
+  color: var(--text-3);
+  padding: 0.2rem 0.55rem;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  transition: all 0.2s;
+  letter-spacing: 0.05em;
+}
+
+.lang-toggle button.active {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.lang-toggle button:not(.active):hover {
+  color: var(--text);
+}
+
+/* ============ Dev SVG scene ============ */
+.scene {
+  width: 100%;
+  height: auto;
+  display: block;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 20px 60px rgba(154, 208, 236, 0.08));
+}
+
+.scene rect,
+.scene circle,
+.scene path,
+.scene polygon {
+  shape-rendering: crispEdges;
+}
+
+/* ============ Cursor blink (Dev tagline) ============ */
+.cursor-blink::after {
+  content: '▌';
+  color: var(--accent);
+  animation: cursorBlink 0.8s steps(1) infinite;
+  margin-left: 2px;
+}
+
+/* ============ About — highlights ============ */
+.highlight {
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: linear-gradient(to bottom right, rgba(154, 208, 236, 0.02), transparent);
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.highlight:hover {
+  border-color: var(--line-2);
+  transform: translateY(-2px);
+}
+
+.highlight-val {
+  font-family: var(--font-mono);
+  font-size: 1.85rem;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+.highlight-lbl {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  color: var(--text-3);
+  margin-top: 0.4rem;
+  letter-spacing: 0.05em;
+}
+
+.about-text p {
+  color: var(--text-2);
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+  max-width: 56ch;
+}
+
+.about-text p strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* ============ Stack ============ */
+.stack-group h3 {
+  font-family: var(--font-pixel);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.stack-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.stack-list li {
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  padding: 0.25rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--text-2);
+  transition: all 0.2s;
+  letter-spacing: 0.02em;
+}
+
+.stack-list li:hover {
+  border-color: var(--accent-2);
+  color: var(--accent-2);
+}
+
+/* ============ Project card ============ */
+.project {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--bg-2);
+  transition: all 0.25s;
+  min-height: 160px;
+  position: relative;
+}
+
+.project:hover {
+  border-color: var(--accent-2);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px -10px rgba(154, 208, 236, 0.15);
+}
+
+.project--featured {
+  border-color: rgba(90, 255, 144, 0.35);
+  background:
+    linear-gradient(to bottom right, rgba(90, 255, 144, 0.04), transparent),
+    var(--bg-2);
+}
+
+.project--featured:hover {
+  border-color: var(--accent);
+  box-shadow: 0 10px 30px -10px rgba(90, 255, 144, 0.2);
+}
+
+.project-badge {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  font-family: var(--font-pixel);
+  font-size: 0.5rem;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  background: rgba(90, 255, 144, 0.08);
+  border: 1px solid rgba(90, 255, 144, 0.25);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+}
+
+.project-name {
+  font-family: var(--font-mono);
+  font-size: 1.2rem;
+  color: var(--accent-2);
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+  padding-right: 5rem; /* reserve room for the featured badge */
+}
+
+.project--featured .project-name {
+  color: var(--accent);
+}
+
+.project-desc {
+  font-size: 0.9rem;
+  color: var(--text-2);
+  margin-bottom: 1rem;
+  flex: 1;
+  line-height: 1.5;
+}
+
+.project-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--text-3);
+}
+
+.project-lang {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.lang-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--text-3);
+  display: inline-block;
+}
+
+/* ============ Projects: loading / error state ============ */
+.projects-loading {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-3);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+}
+
+.projects-loading::before {
+  content: '⟳';
+  display: inline-block;
+  margin-right: 0.5rem;
+  animation: spin 1s linear infinite;
+}
+
+.projects-loading--static::before {
+  display: none;
+}
+
+.view-all {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.view-all a {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  transition: opacity 0.2s;
+}
+
+.view-all a:hover {
+  opacity: 0.7;
+}
+
+/* ============ Contact ============ */
+.contact-pitch {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+  color: var(--text-2);
+  line-height: 1.4;
+  max-width: 30ch;
+}
+
+.contact-pitch em {
+  font-style: italic;
+  color: var(--accent-2);
+  font-weight: 500;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  color: var(--text-2);
+  transition: all 0.2s;
+  letter-spacing: 0.02em;
+}
+
+.contact-link:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateX(4px);
+}
+
+.contact-link .arrow {
+  transition: transform 0.2s;
+}
+
+.contact-link:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* ============ Footer status dot ============ */
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulseDot 1.6s ease-in-out infinite;
+}

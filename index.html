@@ -1,11 +1,316 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Raphael Ribeiro website</title>
-  </head>
-  <body>
-    <h1>website</h1>
-    <p>... website description...</p>
-  </body>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raphael Ribeiro · Backend Engineer</title>
+  <meta name="description" content="Senior Backend Engineer specializing in .NET, C#, and AWS. Building scalable microservices, distributed systems, and clean architectures.">
+  <meta name="theme-color" content="#02040c">
+  <meta property="og:title" content="Raphael Ribeiro · Backend Engineer">
+  <meta property="og:description" content="Building scalable .NET systems. 30M → 80M docs/month. −60% CPU.">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23000'/%3E%3Ccircle cx='10' cy='8' r='4' fill='%237ab4d8'/%3E%3Crect x='3' y='5' width='1' height='1' fill='%23fff'/%3E%3Crect x='6' y='2' width='1' height='1' fill='%23fff'/%3E%3Crect x='14' y='12' width='1' height='1' fill='%23fff'/%3E%3C/svg%3E">
+
+  <!-- Fonts: preconnect for faster handshake, then the stylesheet -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets: loaded in cascade order (tokens → base → layout → components → animations) -->
+  <link rel="stylesheet" href="./assets/styles/tokens.css">
+  <link rel="stylesheet" href="./assets/styles/base.css">
+  <link rel="stylesheet" href="./assets/styles/layout.css">
+  <link rel="stylesheet" href="./assets/styles/components.css">
+  <link rel="stylesheet" href="./assets/styles/animations.css">
+
+  <!-- ES module entry point — deferred by default -->
+  <script type="module" src="./assets/scripts/main.js"></script>
+</head>
+<body>
+
+  <!-- ============ NAV ============ -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="brand">RAPHAEL.DEV</a>
+      <div class="nav-links">
+        <a href="#stack"><span class="nav-link-text" data-i18n="nav_stack">stack</span></a>
+        <a href="#projects"><span class="nav-link-text" data-i18n="nav_projects">projetos</span></a>
+        <a href="#contact"><span class="nav-link-text" data-i18n="nav_contact">contato</span></a>
+        <div class="lang-toggle" role="group" aria-label="Language">         
+          <button type="button" data-lang="en" class="active" aria-pressed="true">EN</button>
+          <button type="button" data-lang="pt" aria-pressed="false">PT</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ DEV ============ -->
+  <header class="dev">
+    <div class="scene-frame">
+      <svg class="scene" viewBox="0 0 660 380" xmlns="http://www.w3.org/2000/svg" aria-label="Pixel art: Raphael at a desk facing a window with Earth and stars beyond.">
+        <defs>
+          <radialGradient id="bgScene" cx="50%" cy="50%" r="60%">
+            <stop offset="0%" stop-color="#0a1428"/>
+            <stop offset="100%" stop-color="#02040c"/>
+          </radialGradient>
+          <radialGradient id="earthScene" cx="32%" cy="32%" r="65%">
+            <stop offset="0%" stop-color="#7ab4d8"/>
+            <stop offset="50%" stop-color="#2a6098"/>
+            <stop offset="100%" stop-color="#0a1830"/>
+          </radialGradient>
+          <clipPath id="windowScene"><rect x="80" y="30" width="500" height="220" rx="6"/></clipPath>
+        </defs>
+
+        <!-- Room (matte black) -->
+        <rect width="660" height="380" fill="#0a0a0d"/>
+
+        <!-- Viewport content (clipped to the window rect) -->
+        <g clip-path="url(#windowScene)">
+          <rect x="80" y="30" width="500" height="220" fill="url(#bgScene)"/>
+          <g id="scene-dust" style="animation: dustDrift 8s linear infinite"></g>
+          <g id="scene-stars-bg"></g>
+          <g id="scene-stars-fg"></g>
+
+          <!-- Earth -->
+          <circle cx="420" cy="130" r="56" fill="url(#earthScene)"/>
+          <g style="animation: earthDrift 60s linear infinite">
+            <rect x="395" y="115" width="10" height="3" fill="#3a8048"/>
+            <rect x="405" y="110" width="14" height="3" fill="#3a8048"/>
+            <rect x="415" y="118" width="12" height="3" fill="#4a9058"/>
+            <rect x="420" y="128" width="18" height="4" fill="#3a8048"/>
+            <rect x="430" y="138" width="12" height="3" fill="#4a9058"/>
+            <rect x="412" y="148" width="16" height="3" fill="#3a8048"/>
+            <rect x="438" y="142" width="8" height="4" fill="#3a8048"/>
+            <rect x="392" y="104" width="16" height="2" fill="#e8e8f0" opacity="0.6"/>
+            <rect x="420" y="140" width="22" height="2" fill="#e8e8f0" opacity="0.5"/>
+            <rect x="408" y="158" width="14" height="2" fill="#e8e8f0" opacity="0.45"/>
+          </g>
+          <circle cx="420" cy="130" r="60" fill="none" stroke="#7ab4d8" stroke-width="1" style="animation: glowAtm 6s ease-in-out infinite"/>
+          <path d="M 420 74 A 56 56 0 0 1 420 186 A 38 56 0 0 0 420 74 Z" fill="#000" opacity="0.4"/>
+
+          <!-- Meteor passes every 16s -->
+          <g style="animation: meteor 16s linear infinite">
+            <rect x="560" y="60" width="4" height="3" fill="#c8a878"/>
+            <rect x="564" y="61" width="12" height="1" fill="#ff9944" opacity="0.6"/>
+            <rect x="576" y="61" width="18" height="1" fill="#ff7722" opacity="0.35"/>
+          </g>
+
+          <!-- Shooting star every 14s (offset start) -->
+          <g style="animation: shootStar 14s ease-out infinite; animation-delay: 3s">
+            <rect x="120" y="55" width="5" height="1" fill="#fff"/>
+            <rect x="115" y="55" width="3" height="1" fill="#fff" opacity="0.5"/>
+          </g>
+        </g>
+
+        <!-- Viewport frame (hairlines) -->
+        <rect x="80" y="30" width="500" height="220" rx="6" fill="none" stroke="#2a2e38" stroke-width="2"/>
+        <rect x="82" y="32" width="496" height="216" rx="5" fill="none" stroke="#1a1d24" stroke-width="1"/>
+
+        <!-- HUD readouts on the glass -->
+        <text x="92" y="48" font-family="VT323, monospace" font-size="9" fill="#5aff90" opacity="0.7">VIEWPORT · FWD-OBS</text>
+        <text x="568" y="48" text-anchor="end" font-family="VT323, monospace" font-size="9" fill="#5aff90" opacity="0.7" style="animation: pulseStatus 1.4s steps(1) infinite">● REC</text>
+
+        <!-- Desk slab -->
+        <rect x="0" y="280" width="660" height="4" fill="#3a2818"/>
+        <rect x="0" y="284" width="660" height="2" fill="#1a0f06"/>
+        <rect x="0" y="286" width="660" height="94" fill="#080608"/>
+
+        <!-- Screen halo (additive light leaking onto the dev) -->
+        <g style="mix-blend-mode: screen;">
+          <rect x="270" y="232" width="120" height="60" fill="#9ad0ec" opacity="0.06"/>
+          <rect x="284" y="244" width="92" height="48" fill="#9ad0ec" opacity="0.09"/>
+        </g>
+
+        <!-- Laptop -->
+        <rect x="290" y="248" width="80" height="36" fill="#1a1c24"/>
+        <rect x="294" y="252" width="72" height="28" fill="#1e1e1e"/>
+        <rect x="294" y="252" width="72" height="4" fill="#252526"/>
+        <rect x="296" y="253.5" width="1.5" height="1.5" fill="#ff5f57"/>
+        <rect x="299" y="253.5" width="1.5" height="1.5" fill="#ffbd2e"/>
+        <rect x="302" y="253.5" width="1.5" height="1.5" fill="#28ca42"/>
+
+        <!-- Code lines (color-coded bars suggesting VSCode syntax) -->
+        <rect x="298" y="259" width="22" height="1.5" fill="#569cd6"/>
+        <rect x="322" y="259" width="14" height="1.5" fill="#9cdcfe"/>
+        <rect x="298" y="263" width="34" height="1.5" fill="#ce9178"/>
+        <rect x="302" y="267" width="28" height="1.5" fill="#4ec9b0"/>
+        <rect x="302" y="271" width="40" height="1.5" fill="#9cdcfe"/>
+        <rect x="298" y="275" width="18" height="1.5" fill="#569cd6"/>
+        <rect x="318" y="275" width="8" height="1.5" fill="#dcdcaa"/>
+        <rect x="328" y="275" width="1.5" height="1.5" fill="#fff" style="animation: typeBlink 0.7s steps(1) infinite"/>
+
+        <!-- Laptop base / keyboard -->
+        <rect x="284" y="284" width="92" height="3" fill="#2a2e38"/>
+        <rect x="282" y="287" width="96" height="2" fill="#15171f"/>
+
+        <!-- Character: back of head + shoulders -->
+        <path d="M 290 380 L 290 320 Q 290 308 308 308 L 352 308 Q 370 308 370 320 L 370 380 Z" fill="#15171f"/>
+        <rect x="322" y="300" width="16" height="8" fill="#9a7050"/>
+        <rect x="316" y="278" width="28" height="22" fill="#3a2818"/>
+        <rect x="316" y="278" width="28" height="3" fill="#1a0f06"/>
+        <rect x="319" y="282" width="22" height="12" fill="#1a0f06"/>
+        <!-- Headphones -->
+        <rect x="313" y="282" width="3" height="12" fill="#0a0a0e"/>
+        <rect x="344" y="282" width="3" height="12" fill="#0a0a0e"/>
+        <rect x="315" y="280" width="30" height="3" fill="#0a0a0e"/>
+        <rect x="313" y="287" width="2" height="2" fill="#5aff90" style="animation: pulseStatus 2s steps(1) infinite"/>
+      </svg>
+    </div>
+
+    <div class="dev-title">
+      <h1>Raphael <em>Ribeiro</em></h1>
+      <p class="dev-tagline cursor-blink" data-i18n="dev_tag">engenheiro backend · .NET / C# / AWS</p>
+    </div>
+
+    <div class="scroll-hint" data-i18n="scroll_hint">[ rolar ↓ ]</div>
+  </header>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="content" id="about">
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <h2 class="section-title"><em data-i18n="about_title_em">sobre</em></h2>
+      <span class="section-rule"></span>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p data-i18n="about_p1"></p>
+        <p data-i18n="about_p2"></p>
+        <p data-i18n="about_p3"></p>
+      </div>
+      <div class="highlights">
+        <div class="highlight">
+          <div class="highlight-val">30M → 80M</div>
+          <div class="highlight-lbl" data-i18n="hl_1">documentos/mês com MongoDB</div>
+        </div>
+        <div class="highlight">
+          <div class="highlight-val">−60%</div>
+          <div class="highlight-lbl" data-i18n="hl_2">CPU/memória após refatoração</div>
+        </div>
+        <div class="highlight">
+          <div class="highlight-val">10+</div>
+          <div class="highlight-lbl" data-i18n="hl_3">anos construindo software</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STACK ============ -->
+  <section class="content" id="stack">
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <h2 class="section-title"><em data-i18n="stack_title_em">stack</em></h2>
+      <span class="section-rule"></span>
+    </div>
+    <div class="stack-groups">
+
+      <div class="stack-group">
+        <h3 data-i18n="stack_g1">LINGUAGENS &amp; FRAMEWORKS</h3>
+        <ul class="stack-list">
+          <li>C#</li>
+          <li>.NET Core</li>
+          <li>.NET 6+</li>
+          <li>ASP.NET Core</li>
+          <li>ASP.NET Web API</li>
+        </ul>
+      </div>
+
+      <div class="stack-group">
+        <h3 data-i18n="stack_g2">ARQUITETURA &amp; PADRÕES</h3>
+        <ul class="stack-list">
+          <li>SOLID</li>
+          <li>Clean Architecture</li>
+          <li>DDD</li>
+          <li>Microservices</li>
+          <li>REST</li>
+          <li>Design Patterns</li>
+        </ul>
+      </div>
+
+      <div class="stack-group">
+        <h3 data-i18n="stack_g3">BANCOS DE DADOS</h3>
+        <ul class="stack-list">
+          <li>SQL Server</li>
+          <li>PostgreSQL</li>
+          <li>MongoDB</li>
+        </ul>
+      </div>
+
+      <div class="stack-group">
+        <h3 data-i18n="stack_g4">CLOUD &amp; DEVOPS</h3>
+        <ul class="stack-list">
+          <li>AWS</li>
+          <li>Azure</li>
+          <li>OCI (cert.)</li>
+          <li>Docker</li>
+          <li>CI/CD</li>
+          <li>Jenkins</li>
+          <li>Git</li>
+        </ul>
+      </div>
+
+      <div class="stack-group">
+        <h3 data-i18n="stack_g5">QUALIDADE &amp; TOOLING</h3>
+        <ul class="stack-list">
+          <li>Unit Testing</li>
+          <li>Swagger</li>
+          <li>Code Review</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section class="content" id="projects">
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <h2 class="section-title"><em data-i18n="projects_title_em">projetos</em></h2>
+      <span class="section-rule"></span>
+    </div>
+    <div class="projects-grid" id="projects-grid">
+      <div class="projects-loading" data-i18n="projects_loading">carregando do github</div>
+    </div>
+    <div class="view-all">
+      <a href="https://github.com/raphaelfribeiro" target="_blank" rel="noopener" data-i18n="view_all">→ ver todos no github</a>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="content" id="contact">
+    <div class="section-head">
+      <span class="section-num">04</span>
+      <h2 class="section-title"><em data-i18n="contact_title_em">contato</em></h2>
+      <span class="section-rule"></span>
+    </div>
+    <div class="contact-block">
+      <p class="contact-pitch" data-i18n="contact_pitch"></p>
+      <div class="contact-links">
+        <a class="contact-link" href="mailto:raphaelfribeiro@gmail.com">
+          <span>raphaelfribeiro@gmail.com</span>
+          <span class="arrow">→</span>
+        </a>
+        <a class="contact-link" href="https://www.linkedin.com/in/raphaelfribeiro" target="_blank" rel="noopener">
+          <span>linkedin.com/in/raphaelfribeiro</span>
+          <span class="arrow">→</span>
+        </a>
+        <a class="contact-link" href="https://github.com/raphaelfribeiro" target="_blank" rel="noopener">
+          <span>github.com/raphaelfribeiro</span>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <span>© <span id="year"></span> Raphael Ribeiro · <span data-i18n="footer_made">feito com pixels e café</span></span>
+    <span class="footer-status">
+      <span class="status-dot"></span>
+      <span data-i18n="footer_status">disponível para projetos</span>
+    </span>
+  </footer>
+
+</body>
 </html>
