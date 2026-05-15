@@ -162,6 +162,28 @@
   }
 }
 
+/* Coffee mug steam — wisp drifts upward and fades. */
+@keyframes mugSmoke {
+
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.6;
+  }
+
+  80% {
+    opacity: 0.3;
+  }
+
+  100% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+}
+
 /* Footer "available" status dot — soft glow ring. */
 @keyframes pulseDot {
 
