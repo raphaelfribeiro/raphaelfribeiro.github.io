@@ -1,0 +1,50 @@
+/**
+ * tokens.css
+ *
+ * Design tokens — the single source of truth for colors, typography,
+ * spacing scale, and other shared primitives.
+ *
+ * Everything else in the stylesheet references these custom properties.
+ * Changing a value here updates the whole site.
+ */
+
+:root {
+  /* ---- Surfaces ---- */
+  --bg:    #02040c;
+  --bg-2:  #0a0a0d;
+  --bg-3:  #0e1018;
+
+  /* ---- Lines / borders ---- */
+  --line:   #1a1d24;
+  --line-2: #2a2e38;
+
+  /* ---- Text ---- */
+  --text:   #e8d8b8;
+  --text-2: #9aa4b8;
+  --text-3: #5a6a82;
+
+  /* ---- Accents ---- */
+  --accent:   #5aff90;  /* mission-green: status, hover, highlights */
+  --accent-2: #9ad0ec;  /* deep-space-blue: titles, project names */
+
+  /* ---- VSCode-ish syntax (used inside the dev SVG) ---- */
+  --code-blue:    #569cd6;
+  --code-orange:  #ce9178;
+  --code-teal:    #4ec9b0;
+  --code-cyan:    #9cdcfe;
+  --code-comment: #6a9955;
+
+  /* ---- Layout ---- */
+  --maxw: 1100px;
+  --pad:  clamp(1.25rem, 4vw, 2.5rem);
+
+  /* ---- Fonts ---- */
+  --font-pixel: 'Press Start 2P', monospace;
+  --font-mono:  'VT323', monospace;
+  --font-sans:  'Inter', system-ui, -apple-system, sans-serif;
+
+  /* ---- Radii ---- */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+}
