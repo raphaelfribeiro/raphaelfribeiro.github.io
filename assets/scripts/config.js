@@ -18,12 +18,12 @@ export const config = Object.freeze({
    */
   pinnedProjects: Object.freeze([
     Object.freeze({
-      name: 'desafio-tecnico',
-      url: 'https://github.com/raphaelfribeiro/desafio-tecnico',
+      name: 'developerstore-api',
+      url: 'https://github.com/raphaelfribeiro/developerstore-api',
       /** Fallback description shown before / if API enrichment fails. */
       descriptionFallback: {
-        pt: 'Desafio técnico de backend: API REST em .NET seguindo Clean Architecture, com testes, Docker e CI.',
-        en: 'Backend technical challenge: .NET REST API following Clean Architecture, with tests, Docker and CI.',
+        pt: 'Desafio técnico de backend: API REST em .NET seguindo DDD e arquitetura CQRS, com testes, Docker e CI.',
+        en: 'Backend technical challenge: .NET REST API following DDD and CQRS architecture, with tests, Docker and CI.',
       },
       /** Fallback language tag. Overwritten by API response when available. */
       languageFallback: 'C#',
